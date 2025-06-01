@@ -1,0 +1,6 @@
+pics/
+cache/
+data/
+copy/cip-official.md
+build/*.pdf
+build/*.html

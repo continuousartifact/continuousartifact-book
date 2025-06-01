@@ -1,0 +1,79 @@
+:root {
+  --page-width: 9.5in;
+  --page-height: 13in;
+  --running-header-top-offset: 0.625in;
+  --page-number-horizontal-offset: 0.25in;
+  --card-width: 63mm; /* 2.4803149606in */
+  --grid-column-gap: 16pt;
+  --grid-column-gap-negative: -16pt;
+  --grid-width: 7.8853893262in; /*calc(3 * var(--card-width) + 2 * var(--grid-column-gap)); */
+  --inside-margin: 0.25in;
+  --outside-margin: 1.3646106738in; /* calc(var(--page-width) - var(--grid-width) - var(--inside-margin)); */
+  --top-margin: 78pt; /* 42pt + 0.5in */
+  --marginalia-font-size: 9pt;
+  --matter-outside-margin: 1.5in;
+  --matter-inside-margin: 1in;
+  --tab-offset: 0.3646106738in; /* calc(var(--outside-margin) - 1in); */
+}
+
+body {
+  max-width: 13in;
+  margin: 0.5in;
+  font-family: "Atlas Grotesk";
+  font-size: 10pt;
+  line-height: 15pt;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 500;
+}
+
+@media print {
+  body {
+    margin: 0;
+  }
+}
+
+@page {
+  font-family: "Atlas Grotesk";
+  font-size: var(--marginalia-font-size);
+  size: var(--page-width) var(--page-height);
+}
+
+section {
+  break-after: page;
+}
+
+@media print {
+  a.pageref, article a, section#cards .intro a, section#cards .note a, section#cip a {
+    visibility: hidden;
+    font-size: 0;
+  }
+
+  section#formats article ul.reflist li a {
+    visibility: visible;
+    font-size: inherit;
+  }
+}
+
+a.pageref::after, article a::after, section#cards .intro a::after, section#cards .note a::after, section#cip a::after, section#index p a::after {
+  content: target-counter(attr(href), page);
+  visibility: visible;
+  font-size: 10pt;
+}
+
+section.matter h1, section.cover h1, section#cards .deck h1, section#cards .intro h1 {
+  font-family: "Forevs Variable";
+  font-weight: 800;
+  font-size: 18pt;
+  line-height: 1;
+  margin: 0 0 0.5in 0;
+  padding: 0;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}

@@ -1,0 +1,3 @@
+_Magic_'s competitive play governing body, Wizards Play Network, does not define an official "Old School" format. Instead, various groups of enthusiasts from around the world have invented their own sets of OSM rules.
+
+The first OSM ruleset, now known as "Swedish" (SWE), is the most restrictive and allows no reprints to be used. Eternal Central (EC) rules are the most popular in the US, incorporating the Fallen Empires expansion and allowing any isomorphic (same frame and art) reprints to be used for affordability. Atlantic rules (ATL), some would say, blend the best parts of the Swedish and EC formats, and are being increasingly adopted in tournament play. Pacific (PAC) and Boreal (BOR) add their own twists.

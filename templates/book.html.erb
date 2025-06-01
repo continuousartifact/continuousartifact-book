@@ -1,0 +1,278 @@
+<html>
+  <!doctype html>
+  <head>
+    <title>A Continuous Artifact</title>
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/cards.css">
+    <link rel="stylesheet" href="style/matter.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <section id="cover" class="cover matter">
+      <h1>Continuous Artifact</h1>
+      <h3>Andy Rossmeissl</h3>
+      <h4>Steady Hand Press</h4>
+    </section>
+    <section class="endpaper">&nbsp;</section>
+    <section class="endpaper">&nbsp;</section>
+    <section id="prebastard" class="blank">&nbsp;</section>
+    <section id="bastard" class="cover">
+      <img src="images/title.svg" style="height: 1in;" />
+    </section>
+    <section id="pretitle" class="blank">&nbsp;</section>
+    <section id="title" class="cover">
+      <img src="images/title.svg" style="height: 1in;" />
+      <h2>The unofficial compendium of legendary<br />cards from the dawn of <i>Magic</i></h2>
+      <h3>Andy Rossmeissl</h3>
+      <img src="images/shp.svg" />
+    </section>
+    <section id="cip" class="cover">
+      <%= Tilt.new(File.exist?("copy/cip-official.md") ? "copy/cip-official.md" : "copy/cip.md", smartypants: true).render(Object.new).gsub("$stamp", Date.today.to_s) %>
+    </section>
+    <section id="dedication" class="cover">
+      <p>To Ben (black), Seamus (white), Shawn (green), and Tom (red)</p>
+      <p>for letting me play blue</p>
+    </section>
+    <section id="contents" class="matter">
+      <h1>Contents</h1>
+      <ol class="reflist">
+        <li><a href="#foreword">Foreword</a></li>
+        <li><a href="#preface">Preface</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li id="cards-toc"><strong>Cards</strong>
+          <ol>
+            <% Card::COLORS.each do |k,v| %>
+            <li><a href="#<%= v %>"><%= v %></a></li>
+            <% end %>
+            </ol>
+        </li>
+        <li><a href="#formats">Formats</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#acknowledgements">Acknowledgements</a></li>
+        <li><a href="#index">Index</a></li>
+      </ol>
+    </section>
+    <section id="foreword" class="matter">
+      <h1>Foreword</h1>
+      <p>Foreword text goes here.</p>
+    </section>
+    <section id="preface" class="matter">
+      <h1>Preface</h1>
+      <article>
+        <%= Tilt.new("copy/preface.md", smartypants: true).render(Object.new).gsub("$card_count", card_count) %>
+      </article>
+    </section>
+    <section id="introduction" class="matter">
+      <h1>Introduction</h1>
+      <article>
+        <%= Tilt.new("copy/introduction.md", smartypants: true).render(Object.new).gsub("$card_count", card_count) %>
+      </article>
+      <figure><img src="images/key.svg" /></figure>
+    </section>
+    <section id="cards">
+<% cards.each do |color_code, card_group| %>
+    <h2><%= Card::COLORS[color_code].empty? ? "Colorless" : Card::COLORS[color_code] %></h2>
+    <% if Card::DECKED.include?(color_code) %>
+    <%= Tilt.new('templates/deck.html.erb').render(Deck.from_csv(DECKS.select { |r| r["color"] == color_code.to_s }, color: color_code, library: LIBRARY), color: color_code) %>
+    <% end %>
+    <div class="cards<%= ' no-intro' unless Card::INTROD.include?(color_code) %>" id="<%= Card::COLORS[color_code] %>">
+      <% if Card::INTROD.include?(color_code) %>
+      <% position = 2 %>
+      <div class="intro">
+        <%= Tilt.new("copy/secondary_colors/#{color_code}.md", smartypants: true).render(Object.new) %>
+      </div>
+      <% else %>
+      <% position = 0 %>
+      <% end %>
+<% card_group.first(999).each_with_index do |card,i| %>
+  <% puts "[build] [DEBUG] #{i} #{card.safe_name}: #{card.reprint_sets}" if ENV['DEBUG'] %>
+  <%= Tilt.new('templates/card.html.erb').render(card, identify: true, qty: 0, p: position) %>
+  <% position += 1 %>
+  <% position += 1 if card.noted? %>
+<% end %>
+    </div>
+<% end %>
+    </section>
+    <section id="formats" class="matter">
+      <h1>Formats</h1>
+      <article>
+        <%= Tilt.new("copy/formats.md", smartypants: true).render(Object.new) %>
+        <h2>The OSM restricted list <span>⑨ Power Nine</span></h2>
+        <ul class="reflist">
+          <li><a href="#ancestral-recall">⑨ Ancestral Recall</a></li>
+          <li><a href="#balance">Balance</a></li>
+          <li><a href="#black-lotus">⑨ Black Lotus</a></li>
+          <li><a href="#braingeyser">Braingeyser</a></li>
+          <li><a href="#channel">Channel</a></li>
+          <li><a href="#chaos-orb">Chaos Orb</a></li>
+          <li><a href="#demonic-tutor">Demonic Tutor</a></li>
+          <li><a href="#library-of-alexandria">Library of Alexandria</a></li>
+          <li><a href="#mana-drain">Mana Drain</a></li>
+          <li><a href="#mind-twist">Mind Twist</a></li>
+          <li><a href="#mox-emerald">⑨ Mox Emerald</a></li>
+          <li><a href="#mox-jet">⑨ Mox Jet</a></li>
+          <li><a href="#mox-pearl">⑨ Mox Pearl</a></li>
+          <li><a href="#mox-ruby">⑨ Mox Ruby</a></li>
+          <li><a href="#mox-sapphire">⑨ Mox Sapphire</a></li>
+          <li><a href="#regrowth">Regrowth</a></li>
+          <li><a href="#sol-ring">Sol Ring</a></li>
+          <li><a href="#timetwister">⑨ Timetwister</a></li>
+          <li><a href="#time-walk">⑨ Time Walk</a></li>
+          <li><a href="#wheel-of-fortune">Wheel of Fortune</a></li>
+        </ul>
+      </article>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th>EC</th>
+            <th>SWE</th>
+            <th>ATL</th>
+            <th>PAC</th>
+            <th>BOR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="3">Sets</td>
+            <td>Alpha, Beta, Unlimited, Arabian Nights, Antiquities, Legends, The Dark</td>
+            <td>✓</td>
+            <td>✓</td>
+            <td>✓</td>
+            <td>✓</td>
+            <td>✓</td>
+          </tr>
+          <tr>
+            <td>Fallen Empires</td>
+            <td>✓</td>
+            <td>✗</td>
+            <td>✓</td>
+            <td>✓</td>
+            <td>✓</td>
+          </tr>
+          <tr>
+            <td>Isomorphic reprints e.g. Revised (see p. <a class="pageref" href="#reprints"></a>)</td>
+            <td>✓</td>
+            <td>✗</td>
+            <td>✓</td>
+            <td>✓</td>
+            <td>✓</td>
+          </tr>
+          <tr>
+            <td rowspan="6">Cards</td>
+            <td>OSM restricted list (see above)</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>Mishra's Workshop (p. <a class="pageref" href="#mishras-workshop"></a>)</td>
+            <td>4</td>
+            <td>1</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Recall (p. <a class="pageref" href="#recall"></a>)</td>
+            <td>1</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Strip Mine (p. <a class="pageref" href="#strip-mine"></a>)</td>
+            <td>4</td>
+            <td>1</td>
+            <td>1</td>
+            <td>4</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Time Vault (p. <a class="pageref" href="#time-vault"></a>)</td>
+            <td>1</td>
+            <td>4</td>
+            <td>4</td>
+            <td>1</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Plague Rats (p. <a class="pageref" href="#time-vault"></a>)</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>∞</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td rowspan="2">Rules</td>
+            <td>Mana burn</td>
+            <td>✓</td>
+            <td>✗</td>
+            <td>✓</td>
+            <td>✓</td>
+            <td>✓</td>
+          </tr>
+          <tr>
+            <td>Ante and related cards</td>
+            <td>✗</td>
+            <td>✗</td>
+            <td>✗</td>
+            <td>✗</td>
+            <td>✗</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section id="community" class="matter">
+      <h1>Community</h1>
+      <article>
+        <%= Tilt.new("copy/community.md", smartypants: true).render(Object.new) %>
+      </article>
+    </section>
+    <section id="acknowledgements" class="matter">
+      <h1>Reprints</h1>
+      <article id="reprints">
+        <%= Tilt.new("copy/reprints.md", smartypants: true).render(Object.new) %>
+        <dl>
+          <% reprint_sets.sort_by { |k| k }.to_h.each do |k, v| %>
+          <dt><%= k %></dt>
+          <dd><%= "#{v['name']} (#{Date.parse(v['released_at']).year})" %></dd>
+          <% end %>
+        </dl>
+      </article>
+      <h1>Acknowledgements</h1>
+      <article>
+        <%= Tilt.new("copy/acknowledgements.md", smartypants: true).render(Object.new) %>
+      </article>
+    </section>
+    <section id="index" class="matter">
+      <h1>Index</h1>
+      <div>
+        <%= Tilt.new("copy/index.md", smartypants: true).render(Object.new) %>
+        <ol class="reflist">
+        <% cards.values.flatten.sort_by(&:safe_name).each do |c| %>
+          <li><a href="#<%= c.id %>"><%= c.safe_name %> <span><%= c.reprint_sets.join(" ").upcase %></span></a></li>
+        <% end %>
+        </ol>
+      </div>
+    </section>
+    <section class="matter">
+      <article>
+        <h1>About the author</h1>
+        <%= Tilt.new("copy/about.md", smartypants: true).render(Object.new) %>
+        <h1>Feedback</h1>
+        <%= Tilt.new("copy/feedback.md", smartypants: true).render(Object.new) %>
+      </article>
+    </section>
+    <section class="endpaper">&nbsp;</section>
+    <section class="endpaper">&nbsp;</section>
+  </body>
+</html>

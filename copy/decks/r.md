@@ -1,0 +1,5 @@
+Yes, red is the color of chaos, but it requires precision to play: iconic "direct damage" spells like Lightning Bolt (p. [X](#lightning-bolt)) and Fireball (p. [X](#fireball)) require keen timing and judgment to land with the most calamitous effect. Firebreathing creatures, natural disasters like Earthquake (p. [X](#earthquake)), and hordes of goblins all add to the opponent's feeling that they are not in control.
+
+## Mono Red Burn
+
+With this emblematic deck, you can roll out your "one-drop" (single mana casting cost) creatures and take out any of your opponents' answers with your Lightning Bolts and Chain Lightnings (p. [X](#chain-lightning)), leaving the dregs to be cleaned up by an Earthquake. The nerve-wracking Ankh of Mishra (p. [X](#ankh-of-mishra)) will tick down both life totals to the point where a well-timed Fireball or Ball Lightning (p. [X](#ball-lightning)) seals the deal. (If you can afford them, check out Copper Tablet, p. [X](#copper-tablet), for an even more perilous ride.)

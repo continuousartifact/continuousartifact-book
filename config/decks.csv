@@ -1,0 +1,81 @@
+color,type,qty,card
+W,C,4,Savannah Lions
+W,C,2,Benalish Hero
+W,C,2,Tundra Wolves
+W,C,2,Icatian Javelineers
+W,C,2,Clergy of the Holy Nimbus
+W,C,4,White Knight
+W,C,3,Order of Leitbur
+W,C,3,Serra Angel
+W,S,4,Crusade
+W,S,4,Swords to Plowshares
+W,S,4,Disenchant
+W,S,2,Divine Offering
+W,S,2,Armageddon
+W,S,1,Balance
+W,L,17,Plains
+W,L,4,Ruins of Trokair
+U,C,4,Merfolk of the Pearl Trident
+U,C,4,Lord of Atlantis
+U,C,4,River Merfolk
+U,C,4,Serendib Efreet
+U,C,3,Seasinger
+U,S,4,Counterspell
+U,S,4,Psionic Blast
+U,S,4,Unstable Mutation
+U,S,4,Phantasmal Terrain
+U,S,3,Boomerang
+U,L,17,Island
+U,L,1,Strip Mine
+U,L,4,Mishra’s Factory
+B,C,4,Order of the Ebon Hand
+B,C,4,Black Knight
+B,C,4,Hypnotic Specter
+B,C,3,Royal Assassin
+B,S,4,Hymn to Tourach
+B,S,4,Dark Ritual
+B,S,4,Terror
+B,S,2,Paralyze
+B,S,2,Drain Life
+B,S,1,Demonic Tutor
+B,S,1,Mind Twist
+B,A,4,The Rack
+B,A,2,Disrupting Scepter
+B,A,1,Sol Ring
+B,L,18,Swamp
+B,L,1,Strip Mine
+B,L,1,Urborg
+R,C,4,Goblin Balloon Brigade
+R,C,4,Goblins of the Flarg
+R,C,4,Ball Lightning
+R,C,2,Ironclaw Orcs
+R,S,4,Chain Lightning
+R,S,4,Lightning Bolt
+R,S,2,Fireball
+R,S,2,Earthquake
+R,S,4,Goblin Grenade
+R,S,2,Shatter
+R,A,2,Black Vise
+R,A,2,Nevinyrral's Disk
+R,A,2,Ankh of Mishra
+R,E,2,Blood Moon
+R,L,19,Mountain
+R,L,1,Dwarven Ruins
+G,C,4,Llanowar Elves
+G,C,4,Elves of Deep Shadow
+G,C,4,Whirling Dervish
+G,C,4,Birds of Paradise
+G,C,4,Scavenger Folk
+G,C,2,Scryb Sprites
+G,C,2,Erhnam Djinn
+G,S,1,Demonic Tutor
+G,S,1,Mind Twist
+G,S,4,Giant Growth
+G,S,2,Ice Storm
+G,S,2,Desert Twister
+G,S,1,Regrowth
+G,A,2,Jayemdae Tome
+G,L,15,Forest
+G,L,4,Mishra's Factory
+G,L,2,Maze of Ith
+G,L,2,Pendelhaven

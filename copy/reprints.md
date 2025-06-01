@@ -1,0 +1,1 @@
+Many OSM cards were reprinted after 1994 with the same art and frame design. These affordable "isomorphic" reprints are welcomed by the community and legal in many tournaments. If the card is shown with a ↻ symbol, find its entry in the Index (p. [X](#index))—the codes listed there indicate which sets to plunder.

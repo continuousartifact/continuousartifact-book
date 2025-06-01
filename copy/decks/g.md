@@ -1,0 +1,5 @@
+The color of nature and natural things, green chooses to harness the power of the world rather than meddle with it. Famous for its mana-ramping (accelerating how much mana you can produce beyond a single land drop per turn—see Llanowar Elves, p. [X](#llanowar-elves)), green is also the home of the biggest creatures in the game, which are made even bigger with the iconic Giant Growth (p. [X](#giant-growth)).
+
+## Mono Green
+
+Use your Llanowar Elves and Birds of Paradise (p. [X](#birds-of-paradise)) to ramp your mana and cast creatures so fast your opponent can't keep up. Use all that extra mana with your Jayemdae Tomes (p. [X](#jayemdae-tome)) to gain card advantage (having more cards in your hand than your opponent), possibly the most valuable asymmetry in OSM. This deck features a "splash" of black, which you can access with your Birds and the enigmatic Elves of Deep Shadow (p. [X](#elves-of-deep-shadow)). (To try splashing in other decks, check out City of Brass, p. [X](#city-of-brass), and Fellwar Stone, p. [X](#fellwar-stone), for affordable mana-fixing.)

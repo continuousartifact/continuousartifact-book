@@ -1,0 +1,19 @@
+<% if identify %>
+      <div id="<%= id %>" class="card<%= ' noted' if noted? %>">
+<% else %>
+      <div class="card<%= ' basic' if basic_land? %>">
+<% end %>
+        <!-- <%= uuids %> -->
+        <h3><%= safe_name %></h3>
+        <% if qty > 0 %><div class="qty"><img src="images/d20/<%= qty %>.png" /></div><% end %>
+        <div class="pic <%= picture_set %>"><img src="../<%= picture_path %>" /></div>
+        <div class="metadata">
+          <p><span class="icon">≡</span><%= sets.map { |set| set == picture_set && sets.length > 1 ? "<strong>#{SET_SHORTHAND[set]}</strong>" : SET_SHORTHAND[set] }.join %> <%= "↻" if has_reprint? %></p>
+          <% if rank %><p><span class="icon">△</span><%= rank %></p><% end %>
+          <p><span class="icon">◷</span><%= rarity %></p>
+          <p><span class="icon">$</span><%= price_range %></p>
+        </div>
+      </div>
+<% if p && [0, 1].include?(p % 3) && noted? %>
+      <div class="note"><aside><%= Tilt.new("copy/notes/#{id}.md", smartypants: true).render(Object.new) %></aside></div>
+<% end %>

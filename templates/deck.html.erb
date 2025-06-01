@@ -1,0 +1,18 @@
+<div class="deck" id="deck-<%= color %>">
+  <div class="intro">
+    <h1><%= Card::COLORS[color].empty? ? "Colorless" : Card::COLORS[color] %></h1>
+    <%= Tilt.new("copy/decks/#{color}.md", smartypants: true).render(Object.new) %>
+  </div>
+  <% card_columns.each do |col| %>
+  <div class="column">
+    <% col.each do |dcard| %>
+      <% qty = dcard.card.basic_land? ? 1 : dcard.qty %>
+    <div class="bundle">
+      <% qty.times do %>
+      <%= Tilt.new('templates/card.html.erb').render(dcard.card, identify: false, qty: dcard.qty) %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>

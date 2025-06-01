@@ -1,0 +1,385 @@
+/* ------- PAGE STYLES ------- */
+
+@page Case {
+  margin: 0;
+  background-image: url(../images/bg/cover.jpg);
+  background-repeat: no-repeat;
+  background-size: auto 13in;
+}
+
+@page Cover {
+  margin: var(--matter-outside-margin);
+}
+
+@page Matter {
+  margin-top: var(--matter-outside-margin);
+  margin-bottom: var(--matter-outside-margin);
+}
+
+@page Matter :left {
+  margin-left: var(--matter-outside-margin);
+  margin-right: var(--matter-inside-margin);
+
+  @top-left {
+    padding-top: var(--running-header-top-offset);
+    content: counter(page);
+  }
+}
+
+@page Matter :right {
+  margin-left: var(--matter-inside-margin);
+  margin-right: var(--matter-outside-margin);
+  @top-right {
+    padding-top: var(--running-header-top-offset);
+    content: counter(page);
+  }
+}
+
+@page Blank {
+  margin: 0;
+}
+
+@page Endpapers {
+  margin: 0;
+  background-image: url(../images/bg/endpapers.jpg);
+  background-size: cover;
+  background-position: left;
+}
+
+@page Endpapers :right {
+  background-position: right;
+}
+
+@page Pretitle {
+  margin: 0;
+  background-image: url(../images/bg/gamma.jpg);
+  background-size: cover;
+}
+
+@page First {
+  margin-top: var(--matter-outside-margin);
+  margin-bottom: var(--matter-outside-margin);
+  counter-reset: page 0;
+}
+
+@page First :left {
+  margin-left: var(--matter-outside-margin);
+  margin-right: var(--matter-inside-margin);
+}
+
+@page First :right {
+  margin-left: var(--matter-inside-margin);
+  margin-right: var(--matter-outside-margin);
+}
+
+/* ------- SECTION CLASS STYLES ------- */
+
+section.endpaper {
+  page: Endpapers;
+}
+
+section.cover {
+  page: Cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 10in;
+  text-align: center;
+}
+
+section.blank {
+  page: Blank;
+}
+
+section.matter {
+  page: Matter;
+}
+
+section.matter h2, section.cover h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 14pt;
+  line-height: 15pt;
+  font-family: "Forevs Variable";
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+section.matter h2 {
+  font-size: 10pt;
+  font-weight: 700;
+  margin: 0 0 0.125in 0;
+}
+
+section.matter h3, section.cover h3 {
+  font-size: 12pt;
+  line-height: 1;
+}
+
+section.matter article {
+  column-count: 2;
+  column-gap: 32pt;
+  font-family: "Feature Text";
+  font-size: 10pt;
+  line-height: 15pt;
+}
+
+section.matter article p {
+  margin: 0 0 15pt 0;
+}
+
+section.matter article+h1 {
+  margin-top: .5in;
+}
+
+.reflist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.reflist ol, .reflist ul {
+  list-style: none;
+  padding-left: 0.25in;
+}
+
+.reflist li a {
+  display: block;
+}
+
+.reflist li a::after {
+  content: leader(". ") target-counter(attr(href), page); 
+}
+
+/* ------- SPECIFIC SECTIONS/PAGES ------- */
+
+/* Case */
+
+section#cover {
+  page: Case;
+  height: 13in;
+}
+
+section#cover * {
+  visibility: hidden;
+}
+
+section#cover h1, section#cover h3, section#cover h4 {
+  color: #FEDB37;
+}
+
+section#cover h1 {
+  font-size: 48pt;
+  line-height: 1;
+}
+
+section#cover h3 {
+  font-size: 24pt;
+  line-height: 1;
+}
+
+section#cover h4 {
+  font-size: 14pt;
+}
+
+/* Empty page before the bastard title */
+
+section#prebastard {
+  page: Blank;
+}
+
+/* Bastard title */
+
+section#bastard {
+}
+
+/* Empty page before the title page */
+
+section#pretitle {
+  page: Pretitle;
+}
+
+/* Title page */
+
+section#title h2 {
+  font-family: "Forevs Variable";
+  font-weight: 400;
+  margin-top: 0.25in;
+  text-transform: none;
+}
+
+section#title h3 {
+  font-family: "Forevs Variable";
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+section#title h3+img {
+  width: 1in;
+  height: auto;
+  margin-top: 1in;
+}
+
+/* CIP */
+
+section#cip {
+  justify-content: end;
+  align-items: start;
+  text-align: left;
+}
+
+section#cip p {
+  max-width: 4in;
+}
+
+/* Dedication */
+
+section#dedication {
+  font-family: "Feature Text";
+  font-size: 10pt;
+  line-height: 15pt;
+  font-style: italic;
+}
+
+section#dedication p {
+  margin: 0;
+}
+
+/* TOC */
+
+section#contents {
+  page: First;
+}
+
+section#contents>ol {
+  width: 3in;
+}
+
+section#contents ol li {
+  margin: 0 0 0.25em 0;
+}
+
+section#contents li#cards-toc {
+  padding: 1em 0;
+}
+
+section#contents li#cards-toc strong {
+  font-weight: 600;
+  display: block;
+  margin: 0 0 0.25em 0;
+}
+
+/* Index */
+
+section#index>div {
+  column-count: 2;
+  column-gap: 16pt;
+}
+
+section#index ol {
+  font-size: 8pt;
+  line-height: 12pt;
+}
+
+section#index ol li a span {
+  font-size: 6pt;
+}
+
+/* Introduction */
+
+section#introduction figure {
+  margin: 0.25in 0 0;
+}
+
+section#introduction figure img {
+  width: 7in;
+}
+
+/* Formats */
+
+section#formats h2 {
+  break-before: column;
+  display: flex;
+  justify-content: space-between;
+}
+
+section#formats h2 span {
+  font-weight: 400;
+  font-family: "Atlas Grotesk";
+  text-transform: none;
+}
+
+section#formats ul {
+  font-family: "Atlas Grotesk";
+  font-size: 9pt;
+  line-height: 12pt;
+}
+
+section#formats table {
+  border: 0.5pt solid #000;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 0.5in;
+}
+
+section#formats tbody tr:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+section#formats thead th {
+  border-bottom: 0.5pt solid #000;
+  font-weight: 500;
+}
+
+section#formats td, section#formats th {
+  border-left: 0.5pt solid #000;
+  padding: 0.0625in 0.125in;
+  width: 0.4in;
+}
+
+section#formats td:first-child, section#formats td[rowspan]+td, section#formats th:nth-child(2) {
+  width: auto;
+}
+
+section#formats td[rowspan] {
+  background: white;
+  width: 0.4in;
+  border-top: 0.5pt solid #000;
+  vertical-align: top;
+  font-weight: 500;
+}
+
+section#formats td[rowspan] ~ td {
+  border-top: 0.5pt solid #000;
+}
+
+/* Acknowledgements */
+
+section#acknowledgements dl {
+  font-size: 8pt;
+  line-height: 12pt;
+  margin: 0;
+  font-family: "Atlas Grotesk";
+}
+
+section#acknowledgements dl dt {
+  float: left;
+  width: 0.5in;
+  text-transform: uppercase;
+}
+
+section#acknowledgements dl dd {
+  margin: 0;
+}
+
+/* About */
+
+article#about {
+  padding-top: 0.25in;
+}
+
+article#about h1 {
+  margin-bottom: 0.25in;
+}

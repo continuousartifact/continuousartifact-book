@@ -1,0 +1,1 @@
+Andy Rossmeissl lives with his wife Sara in Vermont, where he runs a small technology company. A lifelong nerd, Andy picked up _Magic_ in 1994, just in time for Revised, and has played (mostly blue) off and on for over 30 years. He still forgets to activate Prodigal Sorcerer (p. [X](#prodigal-sorcerer)) on opponent's end step.

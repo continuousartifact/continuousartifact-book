@@ -1,0 +1,3 @@
+# Artifacts
+
+Representing magical items, artifacts require only colorless mana, making them useful in any deck. These are some of the most powerful cards in the game—six of the Power Nine (p. [X](#formats)) are artifacts, headed by the famous Black Lotus (p. [X](#black-lotus)). More affordable options include the evocative pair Black Vise (p. [X](#black-vise)) and The Rack (p. [X](#the-rack)), essential "win conditions" for many combos. The early expansion set Antiquities experimented heavily with artifacts, including tournament favorites Triskelion (p. [X](#triskelion)) and Su-Chi (p. [X](#su-chi)).
