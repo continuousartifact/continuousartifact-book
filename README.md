@@ -1,6 +1,16 @@
-# A Continuous Artifact
+<p align="center"><img src="/build/images/bg/cover.jpg" width="240px" /></p>
 
-Book building script.
+<p align="center"><img src="build/images/title.svg" /></p>
+
+<p align="center"><a href="https://github.com/continuousartifact/continuousartifact-book/releases/download/2025-05-31/continuous_artifact-preview-05-31-25.pdf">Low-res preview</a></p>
+
+_Continuous Artifact_ is a "hobby" book I began working on in early 2024 to capture each of the 988 cards in the 1993–94 "Old School" _Magic: The Gathering_ card pool at actual size.
+
+I'm getting a printed copy made for myself (under the Fan Content Policy), but currently have no plans to publish or sell these books more widely.
+
+That said, you're welcome to build a PDF from source and even get one printed on your own. Although please do see the [License](#license) section below to stay in the clear.
+
+![](build/images/preview.png)
 
 ## Requirements
 
@@ -75,3 +85,21 @@ This command produces 3 artifacts (!) which are useful for various purposes, all
 - `book.html` — an HTML version of the book. Many print-specific features will be broken, but still useful for debugging.
 - `book.pdf` — a PDF with one page per page. Most printers will want this file.
 - `book-imposed.pdf` — a PDF with one _spread_ per page. This is best for viewing on screen.
+
+## License
+
+### Book
+
+_Continuous Artifact_ contains a mixture of card images copyrighted by Wizards of the Coast, which are included under their Fan Content Policy, and original material. In order to navigate the blurry FCP waters, the books carries a fairly strict license.
+
+- You **do not** have a license to share, distribute, modify, or creative derivative works from this book. (This ensures that nobody proliferates Continuous Artifact material in ways that violate the FCP.)
+- You **do** have a license to retain and view the book for personal use on your personal devices. (This right is required by the FCP and important to the book's author.)
+- You **do** have a license to print a copy of this book for personal use only. You may not sell or distribute your printed copy. (The book's author hopes you do print a copy! That's why he made this book in the first place. But you must not sell or distribute it—that would violate the FCP and this license.)
+
+Note that this license applies only to the current version of the book. Future releases may carry a different license or no license.
+
+### Code
+
+- The Ruby source code in this repo is licensed under [Polyform Strict](https://polyformproject.org/licenses/strict/1.0.0/).
+- I'm a lifelong supporter of open source and genuine OSI-approved licenses. Why am I not using one of those here? Because it's too difficult to imagine proscribing code changes that materially change the content of the book, which is forbidden under the above book license.
+- The code is available on GitHub so, if you're curious, you can see how the book is made. (I don't consider the code of particularly high quality, so I don't _encourage_ you to repurpose it, but maybe you'll find something useful in there.)
