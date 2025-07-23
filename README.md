@@ -62,6 +62,7 @@ You'll need to get all these assets lined up before running initial setup.
 
 - Create a `data` folder in the root of your repo
 - Download [`AllPrintings.sqlite` and `AllPrices.json`](https://mtgjson.com/downloads/all-files/) and expand into `data`
+- Download [`mtg-os_card_popularity.csv`] and put into `data`
 
 ## Initial setup
 
@@ -75,6 +76,7 @@ You should only need to do this once, or as often as you update your pricing and
   1. `pricing` SLOW — generate the pricing cache
   1. `sets` — generate the set metadata cache
   1. `reprints` SLOW — generate a reprints cache
+  1. `popularity` — generate the card popularity cache
 
 ## Building the book
 
