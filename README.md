@@ -2,7 +2,7 @@
 
 <p align="center"><img src="build/images/title.svg" /></p>
 
-<p align="center"><a href="https://github.com/continuousartifact/continuousartifact-book/releases/download/2025-05-31/continuous_artifact-preview-05-31-25.pdf">Low-res preview</a></p>
+<p align="center"><a href="https://github.com/continuousartifact/continuousartifact-book/releases/download/2025-07-22/continuous_artifact-preview-07-22-25.pdf">Low-res preview</a></p>
 
 _Continuous Artifact_ is a "hobby" book I began working on in early 2024 to capture each of the 988 cards in the 1993–94 "Old School" _Magic: The Gathering_ card pool at actual size.
 
