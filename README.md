@@ -20,9 +20,10 @@ You'll need to get all these assets lined up before running initial setup.
 
 - A modern Ruby with bundler
 - SQLite (e.g. `brew install sqlite`)
-- PDFJam (e.g. `brew install mactex-no-gui`)
+- PDFJam (e.g. `brew install mactex-no-gui`) — if you have mactex but need to upgrade your PDFJam, [see this](https://github.com/pdfjam/pdfjam/issues/94#issuecomment-3011190086)
 - Weasyprint (e.g. `brew install weasyprint`)
 - lipvips (e.g. `brew install vips`)
+- Ghostscript (e.g. `brew install gs`)
 
 ### Typefaces
 

@@ -106,3 +106,10 @@ task open: :impose do
   puts "[open] Opening build/book-imposed.pdf . . ."
   sh "open build/book-imposed.pdf"
 end
+
+# Use ghostscript to compress book-imposed.pdf
+task :compress do
+  date_str = Time.now.strftime("%m-%d-%y")
+  sh "gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=build/continuous_artifact-preview-#{date_str}.pdf build/book-imposed.pdf"
+  puts "[compress] Compressed PDF generated."
+end
