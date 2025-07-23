@@ -86,6 +86,17 @@ This command produces 3 artifacts (!) which are useful for various purposes, all
 - `book.pdf` — a PDF with one page per page. Most printers will want this file.
 - `book-imposed.pdf` — a PDF with one _spread_ per page. This is best for viewing on screen.
 
+## Acknowledgements
+
+See the book for the full rundown. We rely on assets and data from several organizations and sincerely thank them.
+
+- CCGHQ
+- [Scryfall](https://scryfall.com)
+- [MTGJSON](https://mtgjson.com)
+- [Moxfield](https://moxfield.com)
+
+On the software side, we thank [weasyprint](https://weasyprint.org/).
+
 ## License
 
 ### Book
