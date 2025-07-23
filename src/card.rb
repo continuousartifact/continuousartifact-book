@@ -51,6 +51,8 @@ class Card < Sequel::Model
 
   RARITIES = %w(C U R)
 
+  POPULARITY = JSON.load_file("cache/popularity.json").freeze
+
   attr_reader :picture_set, :picture_path
 
   def after_initialize
@@ -68,11 +70,6 @@ class Card < Sequel::Model
 
   def sets
     promo? ? ['promos'] : OSM_SETS.intersection(self[:printings].split(", "))
-  end
-
-  def rank
-    return unless self[:edhrecRank]
-    self[:edhrecRank].to_i.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
   end
 
   def rarity
@@ -127,6 +124,10 @@ class Card < Sequel::Model
 
   def note_path
     @note_path ||= File.join("copy", "notes", "#{id}.md")
+  end
+
+  def popularity
+    POPULARITY.fetch(self[:name])
   end
 
   private

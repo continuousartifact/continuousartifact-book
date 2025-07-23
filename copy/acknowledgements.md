@@ -6,6 +6,6 @@ Thanks to the illustrious Greg T, who runs the @oldschoolmtg Instagram account, 
 
 Thanks, Dad, as always, for the copyediting.
 
-The data underlying the card pages comes from two sources: Scryfall and MTGJSON. Both are invaluable resources for the _Magic_ community, and I am grateful for their work. Prices are from TCGPlayer, Card Kingdom, Cardsphere, and Cardmarket. Card power rankings are courtesy EDHREC.
+The data underlying the card pages comes from two sources: Scryfall and MTGJSON. Both are invaluable resources for the _Magic_ community, and I am grateful for their work. Prices are from TCGPlayer, Card Kingdom, Cardsphere, and Cardmarket. Card popularity data courtesy Moxfield.
 
 This book was programmatically generated using Ruby and the phenomenal Weasyprint library.

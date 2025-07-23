@@ -5,7 +5,7 @@ task default: :open
 # Check that all files are present
 task :check do
   missing = []
-  JSON.load_file("config/card_images.json").concat(["data/AllPrintings.sqlite", "data/AllPrices.json"]).freeze.each do |f|
+  JSON.load_file("config/card_images.json").concat(["data/AllPrintings.sqlite", "data/AllPrices.json", "data/mtg-os_card_popularity.csv"]).freeze.each do |f|
     unless File.exist?(f)
       missing << f
     end
@@ -72,8 +72,14 @@ task :sets do
   puts "[sets] Sets cache generated."
 end
 
+# Generate the card popularity cache
+task :popularity do
+  ruby "src/popularity.rb"
+  puts "[popularity] Card popularity cache generated."
+end
+
 # Runs setup tasks
-task setup: [:normalize, :check, :transform, :pricing, :sets, :reprints] do
+task setup: [:normalize, :check, :transform, :pricing, :sets, :reprints, :popularity] do
   puts "[setup] Setup complete."
 end
 
