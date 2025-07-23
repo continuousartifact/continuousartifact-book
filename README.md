@@ -36,7 +36,7 @@ You'll need to get all these assets lined up before running initial setup.
 
 ### Main set images
 
-- Add the [CCGHQ MTG Pics](magnet:?xt=urn:btih:d35cbb070893e41df88c39db99f6cc869e7eb882&dn=CCGHQ%20MTG%20Pics&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Fpublic.popcorn-tracker.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce) torrent to your BitTorrent client of choice
+- Add the CCGHQ MTG Pics torrent to your BitTorrent client of choice: `magnet:?xt=urn:btih:d35cbb070893e41df88c39db99f6cc869e7eb882&dn=CCGHQ%20MTG%20Pics&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Fpublic.popcorn-tracker.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce`
 - When your download config pops up, you can be selective about what to download—specifically, within the `XLHQs/Base and Expansion Sets` folder you'll want the OSM set zips:
   - 2ED
   - 3ED
@@ -51,7 +51,7 @@ You'll need to get all these assets lined up before running initial setup.
 
 ### Promo card images
 
-- Add the [CCGHQ XLHQ Promos Torrent](magnet:?xt=urn:btih:e9b27add0a5a0f53f3c46c39eb9c27f02899cb32&dn=XLHQ%20Promos&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Fopentor.org%3A2710&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Ftracker.blackunicorn.xyz%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969) torrent to your client as well
+- Add the CCGHQ XLHQ Promos Torrent torrent to your client as well: `magnet:?xt=urn:btih:e9b27add0a5a0f53f3c46c39eb9c27f02899cb32&dn=XLHQ%20Promos&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Fopentor.org%3A2710&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Ftracker.blackunicorn.xyz%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969`
   — Specifically, you'll want:
   - `XLHQ Promos/Convention Promos/DragonCon/Nalathni Dragon.xlhq.jpg`
   - `XLHQ Promos/Media Inserts/HarperPrism/Arena.xlhq.jpg`
