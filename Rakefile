@@ -110,6 +110,7 @@ end
 # Use ghostscript to compress book-imposed.pdf
 task :compress do
   date_str = Time.now.strftime("%m-%d-%y")
-  sh "gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=build/continuous_artifact-preview-#{date_str}.pdf build/book-imposed.pdf"
+  sh "pdfjam --nup 2x1 --landscape --papersize 13in,19in --outfile build/book-imposed-warning.pdf build/warning.pdf '1' build/book.pdf '1-'"
+  sh "gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=build/continuous_artifact-preview-#{date_str}.pdf build/book-imposed-warning.pdf"
   puts "[compress] Compressed PDF generated."
 end

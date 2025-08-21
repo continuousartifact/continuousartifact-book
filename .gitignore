@@ -2,5 +2,6 @@ pics/
 cache/
 data/
 copy/cip-official.md
-build/*.pdf
+build/book*.pdf
+build/continuous_artifact-preview-*.pdf
 build/*.html
