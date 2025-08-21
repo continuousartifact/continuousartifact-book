@@ -17,7 +17,7 @@ section#cards>h2 {
 }
 
 @page Cards :left {
-  background-position: -1.3646106738in -78pt; /*calc(-1 * var(--outside-margin)) calc(-1 * var(--top-margin));*/
+  background-position: -1.2146106738in -78pt; /*calc(-1 * var(--outside-margin)) calc(-1 * var(--top-margin));*/
   margin-left: var(--outside-margin);
   margin-right: var(--inside-margin);
 
@@ -39,7 +39,7 @@ section#cards>h2 {
 }
 
 @page Cards :right {
-  background-position: -0.25in -78pt; /*calc(-1 * var(--inside-margin)) calc(-1 * var(--top-margin));*/
+  background-position: -0.4in -78pt; /*calc(-1 * var(--inside-margin)) calc(-1 * var(--top-margin));*/
   margin-left: var(--inside-margin);
   margin-right: var(--outside-margin);
 

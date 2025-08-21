@@ -7,8 +7,8 @@
   --grid-column-gap: 16pt;
   --grid-column-gap-negative: -16pt;
   --grid-width: 7.8853893262in; /*calc(3 * var(--card-width) + 2 * var(--grid-column-gap)); */
-  --inside-margin: 0.25in;
-  --outside-margin: 1.3646106738in; /* calc(var(--page-width) - var(--grid-width) - var(--inside-margin)); */
+  --inside-margin: 0.4in;
+  --outside-margin: 1.2146106738in; /* calc(var(--page-width) - var(--grid-width) - var(--inside-margin)); */
   --top-margin: 78pt; /* 42pt + 0.5in */
   --marginalia-font-size: 9pt;
   --matter-outside-margin: 1.5in;
