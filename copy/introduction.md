@@ -4,6 +4,6 @@ This book faithfully reproduces every one of these cards, using high-resolution 
 
 The colors are ordered canonically: white, blue, black, red, and green, followed by gold (multicolor), artifacts, and lands. Within each color's section—which begins with an affordable, representative deck you can build yourself—cards are presented in alphabetical order regardless of card type. An index at the back of the book will help you find specific cards.
 
-While the main purpose of this book is to present and celebrate the beloved cards of OSM, we also aim to deepen or rekindle your enthusiasm for the game as it was in this era. To that end, we’ve included a comparison of rules among the major OSM formats and information on how to engage with the thriving global OSM community.
+While the main purpose of this book is to present and celebrate the beloved cards of OS, we also aim to deepen or rekindle your enthusiasm for the game as it was in this era. To that end, we’ve included a comparison of rules among the major OS formats and information on how to engage with the thriving global OS community.
 
 When you find that you can wait no longer and it’s time to buy more cards than you need, please do consider patronizing your local game shop. You’ll be surprised at how many singles they carry, even from the ancient days, and your support will go a long way.

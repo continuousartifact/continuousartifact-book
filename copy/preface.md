@@ -10,9 +10,9 @@ How is it possible, I now wonder, that a year inside the world of Urza and Mishr
 
 Early _Magic_ cards, from Alpha (Aug 1993) to Fallen Empires (Nov 1994), represent a special moment in gaming history. By modern-day standards, these $card_count cards range from wildly underpowered to, some would say, broken. But the raw genius of game creator Richard Garfield and his small band of friends produced a creative torrent so rich and full of joy that this short stack of cards continues to captivate players old and new even today.
 
-The beauty of Old School Magic (OSM), as it is called, is that while this set of cards will never change, frozen in time, there are always new discoveries to be had: tricky combinations, diamonds in the rough, new ways of looking at cards once considered unimportant.
+The beauty of Old School (OS) Magic, as it is called, is that while this set of cards will never change, frozen in time, there are always new discoveries to be had: tricky combinations, diamonds in the rough, new ways of looking at cards once considered unimportant.
 
-OSM tournaments are held every month all around the world. And while the "Power Nine" (see p. [X](#formats)), unattainable to mere mortals like me, are featured in many winning decks, you will also see familiar faces from your own arsenal: Savannah Lions (p. [X](#savannah-lions)), Lightning Bolt (p. [X](#lightning-bolt)), Giant Growth (p. [X](#giant-growth)).
+OS tournaments are held every month all around the world. And while the "Power Nine" (see p. [X](#formats)), unattainable to mere mortals like me, are featured in many winning decks, you will also see familiar faces from your own arsenal: Savannah Lions (p. [X](#savannah-lions)), Lightning Bolt (p. [X](#lightning-bolt)), Giant Growth (p. [X](#giant-growth)).
 
 My hope with this book is to reawaken memories of casting your own first _Magic_ spells on the sidewalk or kitchen table. It's time to dig your cards out of the closet. Flip through the pages ahead to find the fearsome creatures and wicked enchantments you always wished you had—they're probably cheaper than you think. Or if the game is new to you, it's never too late to start. Throw together a couple decks, enlist a friend, and clear off a spot on the carpet: it's time for _Magic_.
 

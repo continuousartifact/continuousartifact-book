@@ -1,8 +1,12 @@
 The beautifully scanned card images in this book were made for the community by a group of rascals going by the name CCGHQ. We owe them a debt of gratitude for their immense ongoing effort to digitally archive every single _Magic_ card ever printed.
 
-The "gamma" card scans in the image opposite the title page were collected from all over the internet, but my understanding is that many of them were originally made by the heroic TheMisprintGuy—thank you.
+I am indebted to Jesper Myrfors for contributing the foreword to this book. I believe that as Magic's original art director, Jesper was the decisive factor in making the game the enduring icon it has become.
 
-Thanks to the illustrious Greg T, who runs the @oldschoolmtg Instagram account, for all of his expert feedback and especially for suggesting the representative decks for each color (although flaws in the specific brews printed here are my fault, not his). And to Scott Gemegnani, owner of the Tinker & Smithy game shop in Middlebury, Vermont—you and your store helped reawaken my long-dormant love of this game.
+It is an honor to feature original art from the inimitable Dan Frazier on the cover of this book. Thank you, Dan.
+
+To Timmy the Sorcerer: how's this for some Oooooold School Magic? Like nearly everybody I meet in OS, I got reintroduced to this world by your channel. Thank you for that—and for the excellent beginner's guide you wrote for the book.
+
+Thanks to the illustrious Greg T, who runs the @oldschoolmtg Instagram account, for all of his expert feedback and especially for suggesting the representative decks for each color (although flaws in the specific brews printed here are my fault, not his). And to Scott Gemegnani, owner of the Tinker & Smithy game shop in Middlebury, Vermont—you and your store helped reawaken my long-dormant love of this game. Support your LGS!
 
 Thanks, Dad, as always, for the copyediting.
 

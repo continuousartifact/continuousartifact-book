@@ -38,7 +38,7 @@ You'll need to get all these assets lined up before running initial setup.
 ### Main set images
 
 - Add the CCGHQ MTG Pics torrent to your BitTorrent client of choice: `magnet:?xt=urn:btih:d35cbb070893e41df88c39db99f6cc869e7eb882&dn=CCGHQ%20MTG%20Pics&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.bittor.pw%3A1337%2Fannounce&tr=udp%3A%2F%2Fpublic.popcorn-tracker.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce`
-- When your download config pops up, you can be selective about what to download—specifically, within the `XLHQs/Base and Expansion Sets` folder you'll want the OSM set zips:
+- When your download config pops up, you can be selective about what to download—specifically, within the `XLHQs/Base and Expansion Sets` folder you'll want the OS set zips:
   - 2ED
   - 3ED
   - ARN

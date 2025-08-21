@@ -1,4 +1,4 @@
-More amoral than evil, black uses death, destruction, and mayhem to win the game. Graveyard tricks, discard effects, and plentiful creature removal—such as with the classic Terror (p. [X](#terror))—combine with a splash of direct damage (Drain Life, p. [X](#drain-life)) to beat down the opposition. There is possibly no card more feared in OSM than a well-timed Mind Twist (p. [X](#mind-twist)).
+More amoral than evil, black uses death, destruction, and mayhem to win the game. Graveyard tricks, discard effects, and plentiful creature removal—such as with the classic Terror (p. [X](#terror))—combine with a splash of direct damage (Drain Life, p. [X](#drain-life)) to beat down the opposition. There is possibly no card more feared in OS than a well-timed Mind Twist (p. [X](#mind-twist)).
 
 ## Mono Black Rack
 
