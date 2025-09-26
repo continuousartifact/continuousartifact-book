@@ -1,0 +1,10 @@
+  <div class="column">
+    <% col.each do |dcard| %>
+      <% qty = dcard.card.basic_land? ? 1 : dcard.qty %>
+    <div class="bundle">
+      <% qty.times do %>
+      <%= Tilt.new('templates/card.html.erb').render(dcard.card, identify: false, qty: dcard.qty) %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>

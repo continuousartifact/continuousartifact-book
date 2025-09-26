@@ -39,7 +39,6 @@
     <section id="contents" class="matter">
       <h1>Contents</h1>
       <ol class="reflist">
-        <li><a href="#foreword">Foreword</a></li>
         <li><a href="#preface">Preface</a></li>
         <li><a href="#introduction">Introduction</a></li>
         <li id="cards-toc"><strong>Cards</strong>
@@ -50,14 +49,16 @@
             </ol>
         </li>
         <li><a href="#formats">Formats</a></li>
+        <li><a href="#essay">Getting started</a></li>
         <li><a href="#community">Community</a></li>
         <li><a href="#acknowledgements">Acknowledgements</a></li>
         <li><a href="#index">Index</a></li>
       </ol>
-    </section>
-    <section id="foreword" class="matter">
       <h1>Foreword</h1>
-      <p>Foreword text goes here.</p>
+      <h2>by Jesper Myrfors</h2>
+      <article>
+        <%= Tilt.new("copy/foreword.md", smartypants: true).render(Object.new) %>
+      </article>
     </section>
     <section id="preface" class="matter">
       <h1>Preface</h1>
@@ -230,6 +231,26 @@
           </tr>
         </tbody>
       </table>
+    </section>
+    <section id="essay" class="matter">
+      <h1>Getting started in Old School <i>Magic</i></h1>
+      <h2>A beginner's guide</h2>
+      <article>
+        <%= Tilt.new("copy/essay.md", smartypants: true).render(Object.new) %>
+      </article>
+    </section>
+    <section class="cards">
+      <div class="deck">
+        <% staples.each_slice(24) do |col| %>
+        <div class="column">
+          <div class="bundle">
+            <% col.each do |name| %>
+            <%= Tilt.new('templates/card.html.erb').render(library.find { |c| c.id == name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '') }, identify: false, qty: 1 ) %>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+      </div>
     </section>
     <section id="community" class="matter">
       <h1>Community</h1>

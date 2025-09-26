@@ -15,6 +15,7 @@ $REPRINT_SETS = Set.new
 REPRINT_SET_CACHE_PATH = File.join("cache", "reprint_sets.json")
 CACHED_REPRINT_SETS = File.exist?(REPRINT_SET_CACHE_PATH) ? JSON.load_file(REPRINT_SET_CACHE_PATH).freeze : {}.freeze
 DECKS = CSV.read(File.join("config", "decks.csv"), headers: true).freeze
+STAPLES = CSV.read(File.join("config", "staples.csv"), headers: true).to_a.drop(1).flatten.freeze
 SET_METADATA = JSON.load_file(File.join("cache", "sets.json")).freeze
 
 CARDS = {}
@@ -72,7 +73,7 @@ CARD_COUNT = CARDS.values.map(&:size).sum
 template = Tilt.new('templates/book.html.erb')
 FileUtils.mkdir_p("build")
 File.open(File.join("build","book.html"), "w") do |f|
-  f.write(template.render(Object.new, cards: CARDS, reprint_sets: CACHED_REPRINT_SETS, decks: DECKS, card_count: CARD_COUNT.to_i.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse, library: LIBRARY))
+  f.write(template.render(Object.new, cards: CARDS, reprint_sets: CACHED_REPRINT_SETS, decks: DECKS, staples: STAPLES, card_count: CARD_COUNT.to_i.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse, library: LIBRARY))
 end
 
 # Reprint housekeeping

@@ -22,5 +22,4 @@ Browsing the pages of this book makes my imagination run wild, filling me with t
 
 I have come to think of these first glimmers from the dawn of _Magic_ as an artifact to be treasured—and played, again and again, late into the night. Every single card has a story, and each has a place of honor in a deck you just haven't gotten around to building yet.
 
-Andy Rossmeissl  
-31 May 2025
+Andy Rossmeissl<br />31 May 2025
