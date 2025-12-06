@@ -97,7 +97,7 @@ end
 
 # Use pdfnup to produce book-imposed.pdf from book.pdf
 task impose: :render do
-  sh "pdfjam --nup 2x1 --landscape --papersize 13in,19in --outfile build/book-imposed.pdf build/book.pdf '{},1,{},2-'"
+  sh "pdfjam --nup 2x1 --landscape --papersize 13in,19in --outfile build/book-imposed.pdf build/book.pdf '{},1-'"
   puts "[impose] Book imposed PDF generated."
 end
 

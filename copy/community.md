@@ -2,7 +2,7 @@ Old School Magic is blessed with a thriving community of players, collectors, an
 
 ## Watch great matches on YouTube
 
-Start with the excellent _Timmy Talks_ channel. Timmy covers seemingly every OS tournament on the planet, and in between hosts webcam games with players of all skill levels. Before each match, Timmy shares "deck tech"—a breakdown of the deck explaining all of the key cards and thematic combinations the player will aim for.
+Start with the excellent _Timmy Talks_ channel. Timmy, who wrote the beginner's guide on p. [X](#essay) covers seemingly every OS tournament on the planet, and in between hosts webcam games with players of all skill levels. Before each match, Timmy shares "deck tech"—a breakdown of the deck explaining all of the key cards and thematic combinations the player will aim for.
 
 Watching these games is a great way to get a feel for OS's current metagame…and start drooling for the powerful cards you (and I) can't afford. If you appreciate Timmy's content, please do consider supporting him on his Patreon. If you do, he'll even play _you_ and put the match on his channel.
 

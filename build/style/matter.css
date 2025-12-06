@@ -175,6 +175,12 @@ section#jacket {
   height: 13in;
 }
 
+/* Empty page before the case cover */
+
+section#precover {
+  page: Blank;
+}
+
 /* Case */
 
 section#cover {
