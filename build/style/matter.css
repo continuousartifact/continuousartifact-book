@@ -1,5 +1,12 @@
 /* ------- PAGE STYLES ------- */
 
+@page Jacket {
+  margin: 0;
+  background-image: url(../images/bg/jacket.jpg);
+  background-repeat: no-repeat;
+  background-size: auto 13in;
+}
+
 @page Case {
   margin: 0;
   background-image: url(../images/bg/cover.jpg);
@@ -160,6 +167,13 @@ section.matter article+h1 {
 }
 
 /* ------- SPECIFIC SECTIONS/PAGES ------- */
+
+/* Jacket */
+
+section#jacket {
+  page: Jacket;
+  height: 13in;
+}
 
 /* Case */
 
