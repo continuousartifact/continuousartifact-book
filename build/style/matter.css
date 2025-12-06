@@ -311,6 +311,12 @@ section#introduction figure img {
   width: 7in;
 }
 
+/* Essay */
+
+section#essay {
+  string-set: color "staples";
+}
+
 /* Formats */
 
 section#formats h2 {
