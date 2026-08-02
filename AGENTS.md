@@ -58,6 +58,25 @@ files change. `transform`, `pricing`, and `reprints` are slow; `transform` and t
 - `cache/`, `data/`, `pics/` — gitignored, large, machine-local.
 - `build/` — CSS and images are tracked; the HTML and PDFs are gitignored.
 
+## The asset folder outside the repo
+
+`~/Documents/projects/aca` is where the author keeps everything that intentionally doesn't get
+checked in. It predates this repo (the first commit is literally "import from aca repo"). Relevant
+contents:
+
+- **Design sources** for the images baked into `build/images/` — `cover*.ai`, `dj.*` (dust jacket),
+  `parchment.ai`, `steady_hand_press.ai`, `printer.ai`, `locket.*` / `chain.*` (Dan Frazier art),
+  plus `Andy R. Art Scans/` (multi-hundred-MB TIFF scans).
+- **`oldschool_aggregates.csv.csv`** — byte-identical to `data/mtg-os_card_popularity.csv`. This is
+  where the popularity data comes from; re-drop it here and copy it over to refresh the star ratings.
+- **`pics-original/`** — the raw CCGHQ torrent downloads. The repo's `pics/` is a separate working
+  copy, not a symlink.
+- **`timmy.docx`** — the source document behind `copy/essay.md`.
+
+Two caveats: much of the folder is abandoned experiments, so don't assume a file is in use just
+because it's there; and some files are unresolved **git-lfs pointers** (`gamma.psd` is 133 bytes of
+LFS metadata, not a PSD). Run `file` before treating a large-looking asset as real.
+
 ## Things that will bite you
 
 **The build is non-deterministic.** `Card#picture_set_and_path` calls `.sample` over every OS-set
