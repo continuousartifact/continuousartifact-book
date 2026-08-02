@@ -274,10 +274,12 @@
       <article>
         <h1>Acknowledgements</h1>
         <%= Tilt.new("copy/acknowledgements.md", smartypants: true).render(Object.new) %>
-        <h1>About the author</h1>
-        <%= Tilt.new("copy/about.md", smartypants: true).render(Object.new) %>
-        <h1>Feedback</h1>
-        <%= Tilt.new("copy/feedback.md", smartypants: true).render(Object.new) %>
+        <div class="closing">
+          <h1>About the author</h1>
+          <%= Tilt.new("copy/about.md", smartypants: true).render(Object.new) %>
+          <h1 id="feedback">Feedback</h1>
+          <%= Tilt.new("copy/feedback.md", smartypants: true).render(Object.new) %>
+        </div>
       </article>
     </section>
     <%# Keeps the back endpapers on a verso/recto pair; the staples spread added a page %>

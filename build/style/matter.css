@@ -388,6 +388,19 @@ section#formats td[rowspan] ~ td {
   border-top: 0.5pt solid #000;
 }
 
+/* Acknowledgements / closing page */
+
+/* Keep the acknowledgements in the first column and start About the author at
+   the top of the second, rather than letting multicol balance them evenly. */
+section#acknowledgements .closing {
+  break-before: column;
+}
+
+/* Twice the headings' bottom margin, to separate Feedback from About above it. */
+section#acknowledgements #feedback {
+  margin-top: 1in;
+}
+
 /* Reprints */
 
 section#reprints dl {
