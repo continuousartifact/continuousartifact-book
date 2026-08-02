@@ -17,7 +17,6 @@ source /opt/homebrew/opt/chruby/share/chruby/chruby.sh && chruby ruby-3.3.4
 ```
 
 External binaries the Rakefile shells out to: `weasyprint`, `pdfjam` (mactex), `gs`, `jq`.
-`vips` is used through the `ruby-vips` gem.
 
 ## Pipeline
 
@@ -26,19 +25,21 @@ External binaries the Rakefile shells out to: `weasyprint`, `pdfjam` (mactex), `
 | Task | Does | Cost |
 |---|---|---|
 | `rake build` | `src/build.rb` renders `templates/book.html.erb` → `build/book.html` | ~4s |
-| `rake render` | weasyprint `book.html` → `build/book.pdf` (one page per page) | slow; output is ~1.9 GB |
-| `rake impose` | pdfjam 2-up → `build/book-imposed.pdf` (one spread per page, 13×19in). The `'{},1-'` page spec injects a blank first so spreads pair correctly | slow |
+| `rake render` | weasyprint `book.html` → `build/book.pdf` (one page per page) | ~40s |
+| `rake impose` | pdfjam 2-up → `build/book-imposed.pdf` (one spread per page, 13×19in). The `'{},1-'` page spec injects a blank first so spreads pair correctly | ~15s |
 | `rake open` | opens the imposed PDF | — |
 | `rake compress` | ghostscript → dated low-res `build/continuous_artifact-preview-MM-DD-YY.pdf`, with `build/warning.pdf` prepended | slow |
 
+A full `rake impose` is ~56s end to end; the book is 153 pages and `book.pdf` lands around 640 MB.
+
 **Iterate on `rake build` and inspect `build/book.html` in a browser.** Layout, pagination,
 running heads, and page-number cross-references are all print-only and will look wrong there,
-but it catches content and structural errors in seconds instead of minutes.
+but it catches content and structural errors in seconds.
 
-`rake setup` (normalize, check, transform, pricing, sets, reprints, popularity) is a one-time
-thing and is already done on this machine. Only re-run individual tasks when the upstream data
-files change. `transform`, `pricing`, and `reprints` are slow; `transform` and the network tasks
-(`sets`, `reprints` — Scryfall API, paged with `sleep 1`) are idempotent/skip-existing.
+`rake setup` (normalize, check, pricing, sets, reprints, popularity) is a one-time thing and is
+already done on this machine. Only re-run individual tasks when the upstream data files change.
+`pricing` and `reprints` are slow; the network tasks (`sets`, `reprints` — Scryfall API, paged
+with `sleep 1`) are idempotent.
 
 ## Layout of the repo
 
@@ -48,13 +49,13 @@ files change. `transform`, `pricing`, and `reprints` are slow; `transform` and t
   shorthand letters, price ranges, rarity, reprints, popularity stars, image path resolution.
 - `src/deck.rb` — `Deck`/`DeckCard`, builds the 5 classic decks from `config/decks.csv` and packs
   them into 5 columns. `DEBUG=1` env var turns on its column-packing trace.
-- `src/{transform,sets,reprints,popularity}.rb` — cache generators, each run once by `rake setup`.
+- `src/{sets,reprints,popularity}.rb` — cache generators, each run once by `rake setup`.
 - `templates/*.html.erb` — `book` (the spine of the whole document), `card`, `deck`, `stack`.
 - `build/style/{main,cards,matter}.css` — hand-written print CSS. `main` = page geometry + vars,
   `cards` = the card grid and card pages, `matter` = front/back matter and named `@page` rules.
 - `copy/**.md` — all prose, rendered through Tilt/rdiscount with smartypants.
-- `config/` — `decks.csv`, `staples.csv`, `card_images.json` (the 2002-entry manifest `check` and
-  `transform` work from).
+- `config/` — `decks.csv`, `staples.csv`, `card_images.json` (the 2002-entry manifest `check`
+  works from).
 - `cache/`, `data/`, `pics/` — gitignored, large, machine-local.
 - `build/` — CSS and images are tracked; the HTML and PDFs are gitignored.
 
@@ -122,8 +123,17 @@ one `@page` rule can silently repaginate the entire book.
 ## Print conventions in use
 
 - Trim 9.5×13in; imposed spreads 13×19in landscape. Cards are real size: 63×88mm.
-- Card corner radius 3mm, except Alpha (`LEA`) at 4–5mm — handled both in `transform.rb` (alpha
-  channel mask) and in `cards.css` (`.pic.LEA`).
+- Card corner radius 3mm, except Alpha (`LEA`) at 5mm — done purely in CSS via `border-radius` +
+  `overflow: hidden` on `.pic`.
+
+**Never feed weasyprint images with an alpha channel.** A JPEG with no alpha is copied into the
+PDF verbatim as a DCTDecode stream, essentially for free. Add an alpha channel and weasyprint must
+decode, build a soft mask, and re-deflate every image: benchmarked at **40x** the render time
+(150 cards: 0.69s → 27.6s) and 3x the file size. The book used to pre-round corners into RGBA PNGs
+via a `transform` step; that was removed once it turned out the CSS was already doing the clipping,
+which took a full build from 3m57s to 56s and `book.pdf` from 1.87 GB to 640 MB. Card images are
+now served straight from `pics/`. If corners ever need changing, change the CSS — don't reintroduce
+baked masks.
 - Typefaces are licensed and installed locally: Forevs Variable (display), Feature Text (body
   prose), Atlas Grotesk (UI/marginalia). Don't swap in substitutes.
 - Named `@page` contexts: `Cards`, `Case`, `Cover`, `Matter`, `Blank`, `Endpapers`, `Pretitle`,

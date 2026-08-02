@@ -22,7 +22,6 @@ You'll need to get all these assets lined up before running initial setup.
 - SQLite (e.g. `brew install sqlite`)
 - PDFJam (e.g. `brew install mactex-no-gui`) — if you have mactex but need to upgrade your PDFJam, [see this](https://github.com/pdfjam/pdfjam/issues/94#issuecomment-3011190086)
 - Weasyprint (e.g. `brew install weasyprint`)
-- lipvips (e.g. `brew install vips`)
 - Ghostscript (e.g. `brew install gs`)
 
 ### Typefaces
@@ -70,11 +69,10 @@ You'll need to get all these assets lined up before running initial setup.
 You should only need to do this once, or as often as you update your pricing and reprints files.
 
 - `bundle install`
-- `bundle exec rake setup` — this runs six setup tasks:
+- `bundle exec rake setup` — this runs five setup tasks:
   1. `normalize` — adjusts some filenames from the image torrents to match card names
   1. `check` — checks to make sure you have all the files we need (see Requirements)
-  1. `transform` SLOW — transforms all the card images to round their corners at the appropriate radius
-  1. `pricing` SLOW — generate the pricing cache
+  1. `pricing` SLOW — generate the pricing cache
   1. `sets` — generate the set metadata cache
   1. `reprints` SLOW — generate a reprints cache
   1. `popularity` — generate the card popularity cache

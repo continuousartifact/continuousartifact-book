@@ -60,12 +60,6 @@ task :reprints do
   puts "[reprints] Reprint cache generated."
 end
 
-# Transform the images
-task :transform do
-  ruby "src/transform.rb"
-  puts "[transform] Images transformed."
-end
-
 # Generate the sets cache
 task :sets do
   ruby "src/sets.rb"
@@ -79,7 +73,7 @@ task :popularity do
 end
 
 # Runs setup tasks
-task setup: [:normalize, :check, :transform, :pricing, :sets, :reprints, :popularity] do
+task setup: [:normalize, :check, :pricing, :sets, :reprints, :popularity] do
   puts "[setup] Setup complete."
 end
 

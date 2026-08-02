@@ -13,8 +13,6 @@ gem "tilt", "~> 2.4"
 gem "pry-rescue", "~> 1.6"
 gem "pry-stack_explorer", "~> 0.6.1"
 
-gem "ruby-vips", "~> 2.2"
-
 gem "rake", "~> 13.2"
 
 gem "csv", "~> 3.3"

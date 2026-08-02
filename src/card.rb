@@ -57,7 +57,8 @@ class Card < Sequel::Model
 
   def after_initialize
     super
-    @picture_set, @picture_path = transformed_picture_set_and_path
+    @picture_set, @picture_path = picture_set_and_path
+    raise "No image found for #{safe_name}" unless @picture_path
   end
 
   def safe_name
@@ -142,15 +143,10 @@ class Card < Sequel::Model
     end.flatten
   end
 
-  def transformed_picture_set_and_path
-    set, path = picture_set_and_path
-    transformed_path = (File.join("cache", "transformed_" + path)).gsub(/jpg$/, 'png')
-    unless File.exist?(transformed_path)
-      raise "Transformed image missing: #{transformed_path}"
-    end
-    [set, transformed_path]
-  end
-
+  # Corners are rounded by CSS (border-radius + overflow: hidden on .pic), so we
+  # hand weasyprint the original JPEG. A JPEG with no alpha is embedded in the PDF
+  # verbatim; anything with an alpha channel has to be decoded and re-compressed,
+  # which cost ~40x the render time and ~3x the file size.
   def picture_set_and_path
     sets_with_pictures.inject([]) do |x, set|
       picture_filenames(set).each do |fn|
