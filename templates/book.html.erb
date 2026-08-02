@@ -46,9 +46,10 @@
         </li>
         <li><a href="#essay">Getting started</a></li>
         <li><a href="#formats">Formats</a></li>
+        <li><a href="#reprints">Reprints</a></li>
         <li><a href="#community">Community</a></li>
-        <li><a href="#acknowledgements">Acknowledgements</a></li>
         <li><a href="#index">Index</a></li>
+        <li><a href="#acknowledgements">Acknowledgements</a></li>
       </ol>
       <h1>Foreword</h1>
       <h2>by Jesper Myrfors</h2>
@@ -146,9 +147,9 @@
           <tr>
             <th></th>
             <th></th>
-            <th>EC</th>
             <th>SWE</th>
             <th>ATL</th>
+            <th>EC</th>
             <th>PAC</th>
             <th>BOR</th>
           </tr>
@@ -156,7 +157,7 @@
         <tbody>
           <tr>
             <td rowspan="3">Sets</td>
-            <td>Alpha, Beta, Unlimited, Arabian Nights, Antiquities, Legends, The Dark</td>
+            <td>Alpha/Beta, Arabian Nights, Antiquities, Legends, The Dark</td>
             <td>✓</td>
             <td>✓</td>
             <td>✓</td>
@@ -165,16 +166,16 @@
           </tr>
           <tr>
             <td>Fallen Empires</td>
-            <td>✓</td>
             <td>✗</td>
+            <td>✓</td>
             <td>✓</td>
             <td>✓</td>
             <td>✓</td>
           </tr>
           <tr>
-            <td>Isomorphic reprints e.g. Revised (see p. <a class="pageref" href="#reprints"></a>)</td>
-            <td>✓</td>
+            <td>Promo cards (e.g. Arena, p. <a class="pageref" href="#arena"></a>)</td>
             <td>✗</td>
+            <td>✓</td>
             <td>✓</td>
             <td>✓</td>
             <td>✓</td>
@@ -190,33 +191,33 @@
           </tr>
           <tr>
             <td>Mishra's Workshop (p. <a class="pageref" href="#mishras-workshop"></a>)</td>
-            <td>4</td>
             <td>1</td>
+            <td>4</td>
             <td>4</td>
             <td>4</td>
             <td>4</td>
           </tr>
           <tr>
             <td>Recall (p. <a class="pageref" href="#recall"></a>)</td>
+            <td>4</td>
+            <td>4</td>
             <td>1</td>
-            <td>4</td>
-            <td>4</td>
             <td>4</td>
             <td>4</td>
           </tr>
           <tr>
             <td>Strip Mine (p. <a class="pageref" href="#strip-mine"></a>)</td>
+            <td>1</td>
+            <td>1</td>
             <td>4</td>
-            <td>1</td>
-            <td>1</td>
             <td>4</td>
             <td>4</td>
           </tr>
           <tr>
             <td>Time Vault (p. <a class="pageref" href="#time-vault"></a>)</td>
+            <td>4</td>
+            <td>4</td>
             <td>1</td>
-            <td>4</td>
-            <td>4</td>
             <td>1</td>
             <td>4</td>
           </tr>
@@ -229,34 +230,20 @@
             <td>4</td>
           </tr>
           <tr>
-            <td rowspan="2">Rules</td>
+            <td rowspan="1">Rules</td>
             <td>Mana burn</td>
-            <td>✓</td>
             <td>✗</td>
             <td>✓</td>
             <td>✓</td>
             <td>✓</td>
-          </tr>
-          <tr>
-            <td>Ante and related cards</td>
-            <td>✗</td>
-            <td>✗</td>
-            <td>✗</td>
-            <td>✗</td>
-            <td>✗</td>
+            <td>✓</td>
           </tr>
         </tbody>
       </table>
     </section>
-    <section id="community" class="matter">
-      <h1>Community</h1>
-      <article>
-        <%= Tilt.new("copy/community.md", smartypants: true).render(Object.new) %>
-      </article>
-    </section>
-    <section id="acknowledgements" class="matter">
+    <section id="reprints" class="matter">
       <h1>Reprints</h1>
-      <article id="reprints">
+      <article>
         <%= Tilt.new("copy/reprints.md", smartypants: true).render(Object.new) %>
         <dl>
           <% reprint_sets.sort_by { |k| k }.to_h.each do |k, v| %>
@@ -265,9 +252,11 @@
           <% end %>
         </dl>
       </article>
-      <h1>Acknowledgements</h1>
+    </section>
+    <section id="community" class="matter">
+      <h1>Community</h1>
       <article>
-        <%= Tilt.new("copy/acknowledgements.md", smartypants: true).render(Object.new) %>
+        <%= Tilt.new("copy/community.md", smartypants: true).render(Object.new) %>
       </article>
     </section>
     <section id="index" class="matter">
@@ -281,8 +270,10 @@
         </ol>
       </div>
     </section>
-    <section class="matter">
+    <section id="acknowledgements" class="matter">
       <article>
+        <h1>Acknowledgements</h1>
+        <%= Tilt.new("copy/acknowledgements.md", smartypants: true).render(Object.new) %>
         <h1>About the author</h1>
         <%= Tilt.new("copy/about.md", smartypants: true).render(Object.new) %>
         <h1>Feedback</h1>
