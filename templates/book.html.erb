@@ -44,8 +44,8 @@
             <% end %>
             </ol>
         </li>
-        <li><a href="#formats">Formats</a></li>
         <li><a href="#essay">Getting started</a></li>
+        <li><a href="#formats">Formats</a></li>
         <li><a href="#community">Community</a></li>
         <li><a href="#acknowledgements">Acknowledgements</a></li>
         <li><a href="#index">Index</a></li>
@@ -92,6 +92,26 @@
 <% end %>
     </div>
 <% end %>
+    </section>
+    <section id="essay" class="matter">
+      <h1>Getting started in Old School <i>Magic</i></h1>
+      <h2>A beginner's guide by Timmy the Sorcerer</h2>
+      <article>
+        <%= Tilt.new("copy/essay.md", smartypants: true).render(Object.new) %>
+      </article>
+    </section>
+    <section id="staples" class="cards">
+      <div class="deck">
+        <% staples.each_slice(12) do |col| %>
+        <div class="column">
+          <div class="bundle">
+            <% col.each do |name| %>
+            <%= Tilt.new('templates/card.html.erb').render(library.find { |c| c.id == name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '') }, identify: false, qty: 1 ) %>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+      </div>
     </section>
     <section id="formats" class="matter">
       <h1>Formats</h1>
@@ -228,26 +248,6 @@
         </tbody>
       </table>
     </section>
-    <section id="essay" class="matter">
-      <h1>Getting started in Old School <i>Magic</i></h1>
-      <h2>A beginner's guide by Timmy the Sorcerer</h2>
-      <article>
-        <%= Tilt.new("copy/essay.md", smartypants: true).render(Object.new) %>
-      </article>
-    </section>
-    <section class="cards">
-      <div class="deck">
-        <% staples.each_slice(24) do |col| %>
-        <div class="column">
-          <div class="bundle">
-            <% col.each do |name| %>
-            <%= Tilt.new('templates/card.html.erb').render(library.find { |c| c.id == name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '') }, identify: false, qty: 1 ) %>
-            <% end %>
-          </div>
-        </div>
-        <% end %>
-      </div>
-    </section>
     <section id="community" class="matter">
       <h1>Community</h1>
       <article>
@@ -289,6 +289,8 @@
         <%= Tilt.new("copy/feedback.md", smartypants: true).render(Object.new) %>
       </article>
     </section>
+    <%# Keeps the back endpapers on a verso/recto pair; the staples spread added a page %>
+    <section id="postmatter" class="blank">&nbsp;</section>
     <section class="endpaper">&nbsp;</section>
     <section class="endpaper">&nbsp;</section>
   </body>

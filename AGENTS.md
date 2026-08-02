@@ -164,10 +164,19 @@ baked masks.
   `background-position: left/right`. Print assets are CMYK with an embedded
   **U.S. Web Coated (SWOP) v2** profile — match that when regenerating any background.
 
-**Front-matter page parity is load-bearing.** `:left`/`:right` rules set asymmetric margins and the
-endpaper background split by page number, so adding or removing an *odd* number of pages before the
-body flips every left/right in the book. Change front matter in pairs, or check that each later
-section keeps its odd/even position.
+**Page parity is load-bearing, front and back.** `:left`/`:right` rules set asymmetric margins and
+the endpaper background split by page number, so adding or removing an *odd* number of pages flips
+every left/right after that point. Two consequences:
+
+- Changing front matter shifts the whole book. Change it in pairs, or check that each later section
+  keeps its odd/even position.
+- The back endpapers must land on a verso/recto pair or they stop forming a spread. `#postmatter`
+  (an otherwise pointless blank right before them) exists purely to absorb the odd page the staples
+  spread added. If you change the page count anywhere, re-check it — the total should stay odd so
+  the endpapers sit on the last two pages as (even, odd).
+
+Verify with: book page *n* is a recto when *n* is odd, and shares imposed sheet `n / 2 + 1` with its
+partner. The staples spread depends on the same thing — it must start on a verso.
 
 ## Conventions
 

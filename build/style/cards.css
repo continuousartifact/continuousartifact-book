@@ -172,6 +172,13 @@ div.deck div.bundle+div.bundle {
   margin-top: -40mm;
 }
 
+/* The staples run 12 distinct cards to a column across a spread, rather than a
+   pile of duplicates of one card, so they get a gentler overlap: enough of each
+   card shows to read the title and some art, and 12 still fill the page height. */
+section#staples div.bundle div.card+div.card {
+  margin-top: -70mm;
+}
+
 div.deck .metadata {
   display: none;
 }
