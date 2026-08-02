@@ -1,6 +1,7 @@
 pics/
 cache/
 data/
+.claude/
 copy/cip-official.md
 build/book*.pdf
 build/continuous_artifact-preview-*.pdf
