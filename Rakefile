@@ -95,8 +95,13 @@ task impose: :render do
   puts "[impose] Book imposed PDF generated."
 end
 
+# Copy book.pdf's outline onto the imposed PDF (pdfjam drops it)
+task bookmarks: :impose do
+  ruby "src/bookmarks.rb"
+end
+
 # Open book-imposed.pdf
-task open: :impose do
+task open: :bookmarks do
   puts "[open] Opening build/book-imposed.pdf . . ."
   sh "open build/book-imposed.pdf"
 end

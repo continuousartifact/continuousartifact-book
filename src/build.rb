@@ -72,9 +72,34 @@ LIBRARY = CARDS.values.flatten.freeze
 CARD_COUNT = CARDS.values.map(&:size).sum
 template = Tilt.new('templates/book.html.erb')
 FileUtils.mkdir_p("build")
+html = template.render(Object.new, cards: CARDS, reprint_sets: CACHED_REPRINT_SETS, decks: DECKS, staples: STAPLES, card_count: CARD_COUNT.to_i.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse, library: LIBRARY)
 File.open(File.join("build","book.html"), "w") do |f|
-  f.write(template.render(Object.new, cards: CARDS, reprint_sets: CACHED_REPRINT_SETS, decks: DECKS, staples: STAPLES, card_count: CARD_COUNT.to_i.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse, library: LIBRARY))
+  f.write(html)
 end
+
+# A noted card only gets its note panel when its grid position falls outside the
+# third column (see templates/card.html.erb), so anything that shifts card order
+# can push a note out of the layout with no error. Catch that here instead.
+card_ids = LIBRARY.map(&:id).to_set
+note_ids = Dir.glob(File.join("copy", "notes", "*.md")).map { |f| File.basename(f, ".md") }.to_set
+rendered_ids = html.scan(/class="note" data-card="([^"]+)"/).flatten.to_set
+
+orphaned = note_ids - card_ids
+dropped  = (note_ids & card_ids) - rendered_ids
+
+unless orphaned.empty? && dropped.empty?
+  message = ["[build] Note placement check failed."]
+  unless orphaned.empty?
+    message << "[build]   No card matches these note files: #{orphaned.sort.join(', ')}"
+    message << "[build]   (a note filename must match Card#id, e.g. copy/notes/mox-jet.md)"
+  end
+  unless dropped.empty?
+    message << "[build]   These notes landed in the third column and were dropped: #{dropped.sort.join(', ')}"
+    message << "[build]   (nudge the card's position using the swap block above, near Dark Ritual)"
+  end
+  raise message.join("\n")
+end
+puts "[build] Note placement OK: #{rendered_ids.size} of #{note_ids.size} notes placed"
 
 # Reprint housekeeping
 rs = $REPRINT_SETS.inject({}) do |h, s|

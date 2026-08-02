@@ -1,3 +1,38 @@
+/* ------- PDF BOOKMARKS ------- */
+
+/* Mirrors the table of contents. weasyprint turns these into book.pdf's outline;
+   pdfjam discards it during imposition, so src/bookmarks.rb copies it onto
+   book-imposed.pdf with remapped page numbers. Note that a display:none element
+   generates no box and therefore no bookmark, which is why the colors hang off
+   their intro headings rather than the hidden section#cards > h2. */
+
+/* weasyprint bookmarks every heading by default, which drags in note titles,
+   deck sub-headings and the title-page subtitle. Start from nothing. */
+h1, h2, h3, h4, h5, h6 {
+  bookmark-level: none;
+}
+
+section.matter h1 {
+  bookmark-level: 1;
+  bookmark-label: content(text);
+}
+
+section#cards {
+  bookmark-level: 1;
+  bookmark-label: "Cards";
+}
+
+/* The heading carries markup and text-transform; name it the way the TOC does. */
+section#essay > h1 {
+  bookmark-label: "Getting started";
+}
+
+section#cards div.deck > div.intro > h1,
+section#cards div.cards > div.intro > h1 {
+  bookmark-level: 2;
+  bookmark-label: content(text);
+}
+
 /* ------- PAGE STYLES ------- */
 
 @page Case {

@@ -16,21 +16,36 @@ crash, so prefix Ruby work with:
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh && chruby ruby-3.3.4
 ```
 
-External binaries the Rakefile shells out to: `weasyprint`, `pdfjam` (mactex), `gs`, `jq`.
+External binaries the Rakefile shells out to: `weasyprint`, `pdfjam` (mactex), `gs`, `jq`, `cpdf`.
 
 ## Pipeline
 
-`rake` (default → `open`) chains: **build → render → impose → open**.
+`rake` (default → `open`) chains: **build → render → impose → bookmarks → open**.
 
 | Task | Does | Cost |
 |---|---|---|
 | `rake build` | `src/build.rb` renders `templates/book.html.erb` → `build/book.html` | ~4s |
 | `rake render` | weasyprint `book.html` → `build/book.pdf` (one page per page) | ~40s |
 | `rake impose` | pdfjam 2-up → `build/book-imposed.pdf` (one spread per page, 13×19in). The `'{},1-'` page spec injects a blank first so spreads pair correctly | ~15s |
+| `rake bookmarks` | `src/bookmarks.rb` copies book.pdf's outline onto the imposed PDF via cpdf | ~3s |
 | `rake open` | opens the imposed PDF | — |
 | `rake compress` | ghostscript → dated low-res `build/continuous_artifact-preview-MM-DD-YY.pdf`, with `build/warning.pdf` prepended | slow |
 
-A full `rake impose` is ~56s end to end; the book is 153 pages and `book.pdf` lands around 640 MB.
+A full run is ~70s end to end; the book is 153 pages (77 imposed sheets) and `book.pdf` lands
+around 640 MB. Timings vary a fair bit with disk contention — 640 MB gets written twice.
+
+### PDF bookmarks
+
+`build/style/matter.css` sets `bookmark-level`/`bookmark-label`, which weasyprint turns into
+book.pdf's outline. Two gotchas: weasyprint bookmarks **every heading by default**, so the CSS
+resets `h1…h6 { bookmark-level: none }` first and opts specific headings back in; and a
+`display: none` element generates no box and therefore no bookmark, which is why the per-color
+entries hang off the intro headings rather than the hidden `section#cards > h2`.
+
+pdfjam discards the outline entirely when imposing, so `src/bookmarks.rb` reads it back out of
+book.pdf and re-applies it to the imposed file, mapping book page *n* to sheet `n / 2 + 1`. If you
+change the pdfjam page spec, that formula has to change with it. `rake compress` prepends a warning
+page and so does *not* get bookmarks.
 
 **Iterate on `rake build` and inspect `build/book.html` in a browser.** Layout, pagination,
 running heads, and page-number cross-references are all print-only and will look wrong there,
@@ -50,6 +65,7 @@ with `sleep 1`) are idempotent.
 - `src/deck.rb` — `Deck`/`DeckCard`, builds the 5 classic decks from `config/decks.csv` and packs
   them into 5 columns. `DEBUG=1` env var turns on its column-packing trace.
 - `src/{sets,reprints,popularity}.rb` — cache generators, each run once by `rake setup`.
+- `src/bookmarks.rb` — post-imposition step that restores the PDF outline.
 - `templates/*.html.erb` — `book` (the spine of the whole document), `card`, `deck`, `stack`.
 - `build/style/{main,cards,matter}.css` — hand-written print CSS. `main` = page geometry + vars,
   `cards` = the card grid and card pages, `matter` = front/back matter and named `@page` rules.
@@ -84,16 +100,17 @@ LFS metadata, not a PSD). Run `file` before treating a large-looking asset as re
 printing that has an image, so each build picks a different printing's art for multi-set cards.
 Two consecutive builds are not diffable. Don't chase "changes" that are just re-sampling.
 
-**Notes are placed by grid position, and can silently vanish.** A card with
-`copy/notes/<id>.md` renders an adjacent note panel only when its grid position `p % 3` is 0 or 1
-(i.e. not in the third column). `build.rb` has a block of hand-written `delete_at`/`insert` swaps
-(Dark Ritual, Birds of Paradise, Marsh Viper, Millstone, Tabernacle) purely to nudge noted cards
-into a workable column. **Adding or removing any note, or anything that shifts card ordering,
-can knock a later note out of the layout without any error.** Verify after a build:
+**Notes are placed by grid position.** A card with `copy/notes/<id>.md` renders an adjacent note
+panel only when its grid position `p % 3` is 0 or 1 (i.e. not in the third column). `build.rb` has
+a block of hand-written `delete_at`/`insert` swaps (Dark Ritual, Birds of Paradise, Marsh Viper,
+Millstone, Tabernacle) purely to nudge noted cards into a workable column. Adding or removing any
+note shifts every later position, so it can knock a *different* note out of the layout — that
+cascade is real, not hypothetical.
 
-```
-ls copy/notes | wc -l && grep -c 'class="note"' build/book.html   # must match (currently 23)
-```
+`build.rb` now fails the build when that happens, naming the dropped cards, so you don't need to
+check by hand. It also catches note files whose name matches no card. The fix for a dropped note
+is to reorder the offending card in the swap block. If you touch that check, note it relies on the
+`data-card` attribute emitted by `templates/card.html.erb`.
 
 **Cross-references are CSS, not text.** In copy, a page reference is written
 `p. [X](#card-id)` — the anchor text is hidden in print (`font-size: 0`) and the page number is
@@ -157,6 +174,8 @@ section keeps its odd/even position.
 - Commit messages are short and imperative ("Edits", "Use 'OS' instead of 'OSM'"). Don't commit
   unless asked.
 - Prose is the author's voice — don't rewrite copy uninvited.
+- `README.md` and much of `copy/` use **em dash followed by a non-breaking space** (`e2 80 94 c2 a0`).
+  String-matching edits fail confusingly if you type a normal space; check the bytes first.
 - The code is deliberately plain, procedural, top-level-constant Ruby. Match it; this is not a
   codebase that wants refactoring into services and modules.
 - Licensing is unusual and deliberate: the book is all-rights-reserved (Wizards' Fan Content

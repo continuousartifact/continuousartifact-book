@@ -23,6 +23,7 @@ You'll need to get all these assets lined up before running initial setup.
 - PDFJam (e.g. `brew install mactex-no-gui`) — if you have mactex but need to upgrade your PDFJam, [see this](https://github.com/pdfjam/pdfjam/issues/94#issuecomment-3011190086)
 - Weasyprint (e.g. `brew install weasyprint`)
 - Ghostscript (e.g. `brew install gs`)
+- cpdf (e.g. `brew install cpdf`) — only used to copy the PDF bookmarks onto the imposed file. Note that cpdf is free for non-commercial use only; building this book for yourself qualifies, but see their [licence](https://www.coherentpdf.com/) if you're doing something else.
 
 ### Typefaces
 
@@ -86,6 +87,8 @@ This command produces 3 artifacts (!) which are useful for various purposes, all
 - `book.html` — an HTML version of the book. Many print-specific features will be broken, but still useful for debugging.
 - `book.pdf` — a PDF with one page per page. Most printers will want this file.
 - `book-imposed.pdf` — a PDF with one _spread_ per page. This is best for viewing on screen.
+
+Both PDFs carry bookmarks matching the table of contents, so you can jump straight to a section or a color.
 
 ## Acknowledgements
 

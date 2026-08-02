@@ -15,5 +15,5 @@
         </div>
       </div>
 <% if p && [0, 1].include?(p % 3) && noted? %>
-      <div class="note"><aside><%= Tilt.new("copy/notes/#{id}.md", smartypants: true).render(Object.new) %></aside></div>
+      <div class="note" data-card="<%= id %>"><aside><%= Tilt.new("copy/notes/#{id}.md", smartypants: true).render(Object.new) %></aside></div>
 <% end %>
