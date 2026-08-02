@@ -1,12 +1,5 @@
 /* ------- PAGE STYLES ------- */
 
-@page Jacket {
-  margin: 0;
-  background-image: url(../images/bg/jacket.jpg);
-  background-repeat: no-repeat;
-  background-size: auto 13in;
-}
-
 @page Case {
   margin: 0;
   background-image: url(../images/bg/cover.jpg);
@@ -168,46 +161,11 @@ section.matter article+h1 {
 
 /* ------- SPECIFIC SECTIONS/PAGES ------- */
 
-/* Jacket */
-
-section#jacket {
-  page: Jacket;
-  height: 13in;
-}
-
-/* Empty page before the case cover */
-
-section#precover {
-  page: Blank;
-}
-
-/* Case */
+/* Case — half-bound cover preview; the artwork carries all the type */
 
 section#cover {
   page: Case;
   height: 13in;
-}
-
-section#cover * {
-  visibility: hidden;
-}
-
-section#cover h1, section#cover h3, section#cover h4 {
-  color: #FEDB37;
-}
-
-section#cover h1 {
-  font-size: 48pt;
-  line-height: 1;
-}
-
-section#cover h3 {
-  font-size: 24pt;
-  line-height: 1;
-}
-
-section#cover h4 {
-  font-size: 14pt;
 }
 
 /* Empty page before the bastard title */

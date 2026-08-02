@@ -126,8 +126,21 @@ one `@page` rule can silently repaginate the entire book.
   channel mask) and in `cards.css` (`.pic.LEA`).
 - Typefaces are licensed and installed locally: Forevs Variable (display), Feature Text (body
   prose), Atlas Grotesk (UI/marginalia). Don't swap in substitutes.
-- Named `@page` contexts: `Cards`, `Case`, `Jacket`, `Cover`, `Matter`, `Blank`, `Endpapers`,
-  `Pretitle`, `First`. Left/right variants carry the asymmetric margins and running heads.
+- Named `@page` contexts: `Cards`, `Case`, `Cover`, `Matter`, `Blank`, `Endpapers`, `Pretitle`,
+  `First`. Left/right variants carry the asymmetric margins and running heads.
+- The book is **half-bound**: `@page Case` shows a preview of the marbled boards with leather spine
+  and corners (`build/images/bg/cover.jpg`). There is no dust jacket — that direction was abandoned,
+  so ignore the `dj.*` files in the asset folder. All the cover type lives in the artwork itself;
+  the `#cover` section is deliberately empty.
+- Endpapers are the same rust marbled paper as the boards, cropped from the raw scan at **1:1
+  physical scale**: 19×13in of real paper at 288 ppi → 5472×3744, split across the spread by
+  `background-position: left/right`. Print assets are CMYK with an embedded
+  **U.S. Web Coated (SWOP) v2** profile — match that when regenerating any background.
+
+**Front-matter page parity is load-bearing.** `:left`/`:right` rules set asymmetric margins and the
+endpaper background split by page number, so adding or removing an *odd* number of pages before the
+body flips every left/right in the book. Change front matter in pairs, or check that each later
+section keeps its odd/even position.
 
 ## Conventions
 
