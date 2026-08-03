@@ -22,11 +22,6 @@ section#cards {
   bookmark-label: "Cards";
 }
 
-/* The heading carries markup and text-transform; name it the way the TOC does. */
-section#essay > h1 {
-  bookmark-label: "Getting started";
-}
-
 section#cards div.deck > div.intro > h1,
 section#cards div.cards > div.intro > h1 {
   bookmark-level: 2;

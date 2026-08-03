@@ -13,8 +13,8 @@ W,S,4,Disenchant
 W,S,2,Divine Offering
 W,S,2,Armageddon
 W,S,1,Balance
-W,L,17,Plains
-W,L,4,Ruins of Trokair
+W,L,20,Plains
+W,L,1,Strip Mine
 U,C,4,Merfolk of the Pearl Trident
 U,C,4,Lord of Atlantis
 U,C,4,River Merfolk
@@ -59,8 +59,8 @@ R,A,2,Black Vise
 R,A,2,Nevinyrral's Disk
 R,A,2,Ankh of Mishra
 R,E,2,Blood Moon
-R,L,19,Mountain
-R,L,1,Dwarven Ruins
+R,L,18,Mountain
+R,L,2,Dwarven Ruins
 G,C,4,Llanowar Elves
 G,C,4,Elves of Deep Shadow
 G,C,4,Whirling Dervish
@@ -72,7 +72,7 @@ G,S,1,Demonic Tutor
 G,S,1,Mind Twist
 G,S,4,Giant Growth
 G,S,2,Ice Storm
-G,S,2,Desert Twister
+G,S,2,Terror
 G,S,1,Regrowth
 G,A,2,Jayemdae Tome
 G,L,15,Forest
