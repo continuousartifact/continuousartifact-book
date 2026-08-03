@@ -28,4 +28,4 @@ While it's a far cry from how we played in 1994, using your paper cards for onli
 
 ## Enter an IRL tournament
 
-The largest organized event each year is Lobstercon in Boston, hosted by New England Old School (NEOS). This event uses a permissive reprint policy (see p. [X](#formats)) and always features card artists and other "celebrities" from the scene. Even better is to start with a smaller event with a more relaxed atmosphere conducive to meeting your fellow mages. Ask in one of the Discords if you can't find an event nearby.
+The largest organized event each year is Lobstercon in Boston, hosted by New England Old School (NEOS). This event uses a permissive reprint policy (see p. [X](#reprints)) and always features card artists and other "celebrities" from the scene. Even better is to start with a smaller event with a more relaxed atmosphere conducive to meeting your fellow mages. Ask in one of the Discords if you can't find an event nearby.
